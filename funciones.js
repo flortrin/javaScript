@@ -1,90 +1,79 @@
-const sumar = (num1,num2)=> {
-    return parseInt(num1) + parseInt(num2);
-    }
-    const dividir = (num1,num2)=> {
-    return parseInt(num1) / parseInt(num2);
-    }
-    const multiplicar = (num1,num2)=> {
-    return parseInt(num1) * parseInt(num2);
-    }
-    const restar = (num1,num2)=> {
-    return parseInt(num1) - parseInt(num2);
-    }
-    alert("¿que operación deseas realizar?");
-    let operacion = prompt("1:suma, 2: división, 3: multiplicación, 4: resta");
-    
-    let numero1 = prompt("primer número");
-    let numero2 = prompt("segundo número");
-
-    if(operacion == 1){
-        resultado = sumar(numero1,numero2)
-        alert(`tu resultado es ${resultado}`);
-    }
-    
-    else if(operacion == 2){
-        resultado = dividir(numero1,numero2)
-        alert(`tu resultado es ${resultado}`);
-    }
-    
-    else if(operacion == 3){
-        resultado = multiplicar(numero1,numero2)
-        alert(`tu resultado es ${resultado}`);
-    }
-    else if(operacion == 4){
-        resultado = restar(numero1,numero2)
-        alert(`tu resultado es ${resultado}`);
-    
-    }
-    
-    else{
-        alert("no se encontro la operación");
-    }
-
-    let resultadoNum = 'El resultado es';
-    let num = 0;
-    
-    do {
-    num = num + 1;
-    resultadoNum = resultadoNum + num;
-    } while (num < 30);
-    
-    console.log(resultadoNum);
-    
-    let frase = "Septiembre" + "<br>";
-    let n = 1;
-    while (n < 30 ) 
-	{ 
-	frase += "<br>" +  n + "<br>"; 
-	n++;
+class Calculadora{
+	constructor(){
+}
+sumar  (num1,num2){
+return parseInt(num1) + parseInt(num2);
+}
+dividir (num1,num2){
+return parseInt(num1) / parseInt(num2);
+}
+multiplicar (num1,num2){
+return parseInt(num1) * parseInt(num2);
+}
+restar (num1,num2){
+return parseInt(num1) - parseInt(num2);
+}
+potenciar(num,exp){
+return num ** exp
 	}
-    document.writeln(frase);
+raizCuadrada(num){
+	return Math.sqrt(num);
+}
+raizCubica(num){
+	return Math.cbrt(num);
+}
+}
 
- let trabajo = "240 minutos de trabajo";
- let estudio = "100 minutos de estudio";
- let tps = "100 minutos de limpieza";
- let tareas = "30 minutos de tareas";
- let descanso = "10 minutos de descanso";
- 
- console.log("TAREAS");
- for (var i = 0; i < 14; i++){
-     if (i == 0){
-         console.group("semana 1")
-     }
- console.groupCollapsed("dia " + (i+1));
- console.log("trabajo");
- console.log("descanso");
- console.log("estudio");
- console.log("limpieza");
- console.log("tareas");
- console.groupEnd();
- if (i == 6){
-         console.groupEnd();
-         console.groupCollapsed("semana 2")
-     }
- }
- 
- 
- console.groupEnd();
- console.groupEnd();
- 
- 
+const calculadora = new Calculadora();
+
+alert("¿que operación deseas realizar?");
+let operacion = prompt("1:suma, 2: división, 3: multiplicación, 4: resta, 5: potenciación, 6: raiz cuadrada, 7: raiz cubica");
+
+if(operacion == 1){
+	let numero1 = prompt("primer número para sumar");
+	let numero2 = prompt("segundo número para sumar");
+	resultado = calculadora.sumar(numero1,numero2)
+	alert(`tu resultado es ${resultado}`);
+}
+
+else if(operacion == 2){
+	let numero1 = prompt("primer número para dividir");
+	let numero2 = prompt("segundo número para dividir");
+	resultado = calculadora.dividir(numero1,numero2)
+	alert(`tu resultado es ${resultado}`);
+}
+
+else if(operacion == 3){
+	let numero1 = prompt("primer número para multiplicar");
+	let numero2 = prompt("segundo número para multiplicar");
+	resultado = calculadora.multiplicar(numero1,numero2)
+	alert(`tu resultado es ${resultado}`);
+}
+else if(operacion == 4){
+	let numero1 = prompt("primer número para restar");
+	let numero2 = prompt("segundo número para restar");
+	resultado = calculadora.restar(numero1,numero2)
+	alert(`tu resultado es ${resultado}`);
+
+}
+else if(operacion == 5){
+	let numero1 = prompt("número a potenciar");
+	let numero2 = prompt("exponente");
+	resultado = calculadora.potenciar(numero1,numero2)
+	alert(`tu resultado es ${resultado}`);
+}
+
+else if(operacion == 6){
+	let numero1 = prompt("conocer la raiz cuadrada de:");
+	resultado = calculadora.raizCuadrada(numero1)
+	alert(`tu resultado es ${resultado}`);
+}
+
+else if(operacion == 7){
+	let numero1 = prompt("conocer la raiz cubica de:");
+	resultado = calculadora.raizCubica(numero1)
+	alert(`tu resultado es ${resultado}`);
+}
+else{
+	alert("no se encontro la operación");
+}
